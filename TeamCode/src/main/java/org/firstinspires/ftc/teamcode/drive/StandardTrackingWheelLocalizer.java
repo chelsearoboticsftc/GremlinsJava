@@ -7,6 +7,8 @@ import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.localization.ThreeTrackingWheelLocalizer;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+
+import org.firstinspires.ftc.teamcode.subsystems.Odometry;
 import org.firstinspires.ftc.teamcode.util.Encoder;
 
 import java.util.Arrays;
@@ -34,7 +36,8 @@ public class StandardTrackingWheelLocalizer extends ThreeTrackingWheelLocalizer 
     public static double LATERAL_DISTANCE = 10; // in; distance between the left and right wheels
     public static double FORWARD_OFFSET = 4; // in; offset of the lateral wheel
 
-    private Encoder leftEncoder, rightEncoder, frontEncoder;
+    //private Encoder leftEncoder, rightEncoder, frontEncoder;
+    private Odometry odometry;
 
     private List<Integer> lastEncPositions, lastEncVels;
 
@@ -48,9 +51,11 @@ public class StandardTrackingWheelLocalizer extends ThreeTrackingWheelLocalizer 
         lastEncPositions = lastTrackingEncPositions;
         lastEncVels = lastTrackingEncVels;
 
-        leftEncoder = new Encoder(hardwareMap.get(DcMotorEx.class, "leftEncoder"));
-        rightEncoder = new Encoder(hardwareMap.get(DcMotorEx.class, "rightEncoder"));
-        frontEncoder = new Encoder(hardwareMap.get(DcMotorEx.class, "frontEncoder"));
+        //leftEncoder = new Encoder(hardwareMap.get(DcMotorEx.class, "leftEncoder"));
+        //rightEncoder = new Encoder(hardwareMap.get(DcMotorEx.class, "rightEncoder"));
+        //frontEncoder = new Encoder(hardwareMap.get(DcMotorEx.class, "frontEncoder"));
+
+        odometry = new Odometry(hardwareMap);
 
         // TODO: reverse any encoders using Encoder.setDirection(Encoder.Direction.REVERSE)
     }
@@ -62,28 +67,36 @@ public class StandardTrackingWheelLocalizer extends ThreeTrackingWheelLocalizer 
     @NonNull
     @Override
     public List<Double> getWheelPositions() {
-        int leftPos = leftEncoder.getCurrentPosition();
-        int rightPos = rightEncoder.getCurrentPosition();
-        int frontPos = frontEncoder.getCurrentPosition();
+        //int leftPos = leftEncoder.getCurrentPosition();
+        //int rightPos = rightEncoder.getCurrentPosition();
+        //int frontPos = frontEncoder.getCurrentPosition();
+
+        odometry.updatePositions();
+
+        int leftPos = odometry.getLeftEncoderCounts();
+        int rightPos = odometry.getRightEncoderCounts();
+        int centerPos = odometry.getCenterEncoderCounts();
 
         lastEncPositions.clear();
         lastEncPositions.add(leftPos);
         lastEncPositions.add(rightPos);
-        lastEncPositions.add(frontPos);
+        lastEncPositions.add(centerPos);
 
         return Arrays.asList(
                 encoderTicksToInches(leftPos),
                 encoderTicksToInches(rightPos),
-                encoderTicksToInches(frontPos)
+                encoderTicksToInches(centerPos)
         );
     }
 
     @NonNull
     @Override
     public List<Double> getWheelVelocities() {
-        int leftVel = (int) leftEncoder.getCorrectedVelocity();
-        int rightVel = (int) rightEncoder.getCorrectedVelocity();
-        int frontVel = (int) frontEncoder.getCorrectedVelocity();
+        odometry.updateVelocities();
+        
+        int leftVel = odometry.getLeftEncoderVelocity();
+        int rightVel = odometry.getRightEncoderVelocity();
+        int frontVel = odometry.getCenterEncoderVelocity();
 
         lastEncVels.clear();
         lastEncVels.add(leftVel);

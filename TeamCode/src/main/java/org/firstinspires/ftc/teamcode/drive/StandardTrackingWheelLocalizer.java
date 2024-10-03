@@ -29,8 +29,8 @@ import java.util.List;
  */
 @Config
 public class StandardTrackingWheelLocalizer extends ThreeTrackingWheelLocalizer {
-    public static double TICKS_PER_REV = 0;
-    public static double WHEEL_RADIUS = 2; // in
+    public static double TICKS_PER_REV = 2000;
+    public static double WHEEL_RADIUS = 1.88976; // in
     public static double GEAR_RATIO = 1; // output (wheel) speed / input (encoder) speed
 
     public static double LATERAL_DISTANCE = 10; // in; distance between the left and right wheels
@@ -67,10 +67,6 @@ public class StandardTrackingWheelLocalizer extends ThreeTrackingWheelLocalizer 
     @NonNull
     @Override
     public List<Double> getWheelPositions() {
-        //int leftPos = leftEncoder.getCurrentPosition();
-        //int rightPos = rightEncoder.getCurrentPosition();
-        //int frontPos = frontEncoder.getCurrentPosition();
-
         odometry.updatePositions();
 
         int leftPos = odometry.getLeftEncoderCounts();
@@ -93,7 +89,7 @@ public class StandardTrackingWheelLocalizer extends ThreeTrackingWheelLocalizer 
     @Override
     public List<Double> getWheelVelocities() {
         odometry.updateVelocities();
-        
+
         int leftVel = odometry.getLeftEncoderVelocity();
         int rightVel = odometry.getRightEncoderVelocity();
         int frontVel = odometry.getCenterEncoderVelocity();

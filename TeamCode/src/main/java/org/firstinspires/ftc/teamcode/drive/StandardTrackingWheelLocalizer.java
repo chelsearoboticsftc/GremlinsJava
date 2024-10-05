@@ -38,6 +38,7 @@ public class StandardTrackingWheelLocalizer extends ThreeTrackingWheelLocalizer 
 
     public static double X_MULTIPLIER = 1.0063;
     public static double Y_MULTIPLIER = 1.009;
+    
 
     //private Encoder leftEncoder, rightEncoder, frontEncoder;
     private Odometry odometry;

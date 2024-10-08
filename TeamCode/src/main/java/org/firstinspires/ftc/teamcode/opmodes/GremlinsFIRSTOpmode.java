@@ -10,12 +10,8 @@ import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 
-@Autonomous
-public void  runOpMode(){
-    sampleMecanumDrive drivetrain = new SampleMecanumDrive(hardwareMap);
 
-    waitForStart();
-}
+
 @TeleOp
 public class GremlinsFIRSTOpmode extends LinearOpMode {
     private DcMotor frontLeft = null;

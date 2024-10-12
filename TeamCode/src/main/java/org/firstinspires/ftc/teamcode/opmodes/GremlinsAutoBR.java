@@ -18,7 +18,44 @@ public class GremlinsAutoBR extends LinearOpMode {
 
         waitForStart();
 
-          /*  Trajectory goForward = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
+
+
+        //actual auto
+
+        //push sample
+        Trajectory strafeLeft = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
+                .strafeLeft(22)
+                .build();
+        drivetrain.followTrajectory(strafeLeft);
+
+        //move away from sample
+        Trajectory strafeRight = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
+                .strafeRight(2)
+                .build();
+        drivetrain.followTrajectory(strafeRight);
+
+        //park
+        Trajectory goForward = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
+                .forward(23)
+                .build();
+        drivetrain.followTrajectory(goForward);
+
+        drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
+                .strafeRight(104)
+                .build();
+        drivetrain.followTrajectory(strafeRight);
+
+        Trajectory back = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
+                .back(17)
+                .build();
+        drivetrain.followTrajectory(back);
+
+
+
+    }
+}
+
+ /*  Trajectory goForward = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
                     .forward(100)
                     .build();
             drivetrain.followTrajectory(goForward);
@@ -39,33 +76,3 @@ public class GremlinsAutoBR extends LinearOpMode {
                     .build();
             drivetrain.followTrajectory(strafeToPosition);*/
 
-        //actual auto
-        Trajectory strafeLeft = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
-                .strafeLeft(22)
-                .build();
-        drivetrain.followTrajectory(strafeLeft);
-
-        Trajectory strafeRight = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
-                .strafeRight(2)
-                .build();
-        drivetrain.followTrajectory(strafeRight);
-
-        Trajectory goForward = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
-                .forward(23)
-                .build();
-        drivetrain.followTrajectory(goForward);
-
-        drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
-                .strafeRight(104)
-                .build();
-        drivetrain.followTrajectory(strafeRight);
-
-        Trajectory back = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
-                .back(17)
-                .build();
-        drivetrain.followTrajectory(back);
-
-
-
-    }
-}

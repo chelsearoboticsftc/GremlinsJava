@@ -18,7 +18,30 @@ public class GremlinsAutoRR extends LinearOpMode {
 
         waitForStart();
 
-          /*  Trajectory goForward = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
+
+
+        //actual auto
+
+        //move away from wall
+        Trajectory goForward = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
+                .forward(0.5)
+                .build();
+
+        //park
+        Trajectory strafeRight = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
+                .strafeRight(47)
+                .build();
+        drivetrain.followTrajectory(strafeRight);
+
+
+
+
+
+
+    }
+}
+
+  /*  Trajectory goForward = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
                     .forward(100)
                     .build();
             drivetrain.followTrajectory(goForward);
@@ -38,22 +61,3 @@ public class GremlinsAutoRR extends LinearOpMode {
                     .strafeTo(new Vector2d(0, 50))
                     .build();
             drivetrain.followTrajectory(strafeToPosition);*/
-
-        //actual auto
-        Trajectory goForward = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
-                .forward(0.5)
-                .build();
-
-        Trajectory strafeRight = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
-                .strafeRight(47)
-                .build();
-        drivetrain.followTrajectory(strafeRight);
-
-
-
-
-
-
-    }
-}
-

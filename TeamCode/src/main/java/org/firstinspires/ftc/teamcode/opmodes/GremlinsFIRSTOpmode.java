@@ -23,6 +23,10 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
     private DcMotor frontRight = null;
     private DcMotor backLeft = null;
     private DcMotor backRight = null;
+    private DcMotor SGWW = null;
+    private DcMotor fourBar = null;
+    private DcMotor LS = null;
+
 
 
     @Override
@@ -36,6 +40,9 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
         frontRight = hardwareMap.get(DcMotor.class, "frontRight");
         backLeft   = hardwareMap.get(DcMotor.class, "backLeft");
         backRight  = hardwareMap.get(DcMotor.class, "backRight");
+        SGWW = hardwareMap.get(DcMotor.class, "SGWW");
+        fourBar = hardwareMap.get(DcMotor.class, "fourBar");
+        LS = hardwareMap.get(DcMotor.class, "LS");
 
 
         //Here we are setting the motor directions for positive power
@@ -43,7 +50,8 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
         frontRight.setDirection(DcMotorSimple.Direction.FORWARD);
         backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         backRight.setDirection(DcMotorSimple.Direction.FORWARD);
-
+        SGWW.setDirection(DcMotor.Direction.REVERSE);
+        fourBar.setDirection(DcMotor.Direction.FORWARD);
 
 
 
@@ -54,10 +62,59 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
             telemetry.addData("Status", "Running");
 
 
-            //Read gamepad input
-            double drive = gamepad1.left_stick_y * -1;
-            double strafe = gamepad1.left_stick_x * -1;
-            double turn = gamepad1.right_stick_x * -1;
+            //Read Gamepad Drive Input
+            double drive = gamepad2.left_stick_y * -1;
+            double strafe = gamepad2.left_stick_x * -1;
+            double turn = gamepad2.right_stick_x * -1;
+
+
+            // Spinny Go Wee Wee Out
+            if (gamepad1.b) {
+                SGWW.setDirection(DcMotor.Direction.REVERSE);
+                SGWW.setPower(0.25);
+            } else {
+                SGWW.setPower(0);
+            }
+
+            //Spinny Go Wee Wee In
+            if (gamepad1.x) {
+                SGWW.setDirection(DcMotor.Direction.FORWARD);
+                SGWW.setPower(0.25);
+            } else {
+                SGWW.setPower(0);
+            }
+
+            //Linear Slide Up
+            if (gamepad1.dpad_up) {
+                LS.setDirection(DcMotor.Direction.FORWARD);
+                LS.setPower(0.25);
+            } else {
+                LS.setPower(0);
+            }
+
+            //Linear slide down
+            if (gamepad1.dpad_down) {
+                LS.setDirection(DcMotor.Direction.REVERSE);
+                LS.setPower(0.25);
+            } else {
+                LS.setPower(0);
+            }
+
+            //Four Bar Up
+            if (gamepad1.y) {
+                fourBar.setDirection(DcMotor.Direction.FORWARD);
+                fourBar.setPower(0.25);
+            } else {
+                fourBar.setPower(0);
+            }
+
+            //Four Bar Down
+            if (gamepad1.a) {
+                fourBar.setDirection(DcMotor.Direction.REVERSE);
+                fourBar.setPower(0.25);
+            } else {
+                fourBar.setPower(0);
+            }
 
 
             double[] speeds = {

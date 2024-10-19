@@ -87,7 +87,7 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
             //Linear Slide Up
             if (gamepad1.dpad_up) {
                 LS.setDirection(DcMotor.Direction.FORWARD);
-                LS.setPower(0.25);
+                LS.setPower(0.10);
             } else {
                 LS.setPower(0);
             }
@@ -95,7 +95,7 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
             //Linear slide down
             if (gamepad1.dpad_down) {
                 LS.setDirection(DcMotor.Direction.REVERSE);
-                LS.setPower(0.25);
+                LS.setPower(0.10);
             } else {
                 LS.setPower(0);
             }

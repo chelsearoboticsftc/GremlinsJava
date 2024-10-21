@@ -18,6 +18,10 @@ public class GremlindsAutoRL extends LinearOpMode {
 
         waitForStart();
 
+        Pose2d startPose = new Pose2d(10, -8, Math.toRadians(90));
+
+        drivetrain.setPoseEstimate(startPose);
+
         //push sample
         Trajectory traj1 = drivetrain.trajectoryBuilder(new Pose2d())
                 .strafeLeft(22)

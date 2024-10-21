@@ -22,6 +22,7 @@ public class TestAuto extends LinearOpMode {
 
         Pose2d startPose = new Pose2d(10, -5);
 
+        drivetrain.setPoseEstimate(startPose);
 
         Trajectory traj1 = drivetrain.trajectoryBuilder(new Pose2d())
                 .forward(10)

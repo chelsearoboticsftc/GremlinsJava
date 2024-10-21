@@ -20,7 +20,9 @@ public class GremlinsAutoBR extends LinearOpMode {
 
         waitForStart();
 
+        Pose2d startPose = new Pose2d(10, -8, Math.toRadians(90));
 
+        drivetrain.setPoseEstimate(startPose);
 
         //actual auto
 

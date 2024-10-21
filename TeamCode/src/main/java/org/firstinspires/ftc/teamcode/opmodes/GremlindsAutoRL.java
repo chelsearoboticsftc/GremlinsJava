@@ -21,16 +21,16 @@ public class GremlindsAutoRL extends LinearOpMode {
 
         //actual auto
         //push sample
-        Trajectory strafeLeft = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
+        Trajectory traj1 = drivetrain.trajectoryBuilder(new Pose2d())
                 .strafeLeft(22)
                 .build();
-        drivetrain.followTrajectory(strafeLeft);
+
 
         //move away from sample
-        Trajectory strafeRight = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
+        Trajectory traj2 = drivetrain.trajectoryBuilder(traj1.end())
                 .strafeRight(2)
                 .build();
-        drivetrain.followTrajectory(strafeRight);
+        drivetrain.followTrajectory(traj2);
 
         //park
         Trajectory goForward = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
@@ -41,7 +41,7 @@ public class GremlindsAutoRL extends LinearOpMode {
         drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
                 .strafeRight(104)
                 .build();
-        drivetrain.followTrajectory(strafeRight);
+
 
         Trajectory back = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
                 .back(17)
@@ -49,7 +49,8 @@ public class GremlindsAutoRL extends LinearOpMode {
         drivetrain.followTrajectory(back);
 
 
-
+        drivetrain.followTrajectory(traj1);
+        drivetrain.followTrajectory(traj2);
     }
 }
 

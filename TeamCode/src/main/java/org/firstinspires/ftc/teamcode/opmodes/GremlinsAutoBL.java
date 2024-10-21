@@ -8,10 +8,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 
-
 @Autonomous
 public class GremlinsAutoBL extends LinearOpMode {
-
     @Override
     public void runOpMode() {
 
@@ -24,26 +22,47 @@ public class GremlinsAutoBL extends LinearOpMode {
 
         //actual auto
 
-        //move away from wall
-        Trajectory goForward = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
-                .forward(0.5)
+        //push sample
+        Trajectory traj1 = drivetrain.trajectoryBuilder(new Pose2d())
+                .strafeLeft(22)
                 .build();
+
+
+        //move away from sample
+        Trajectory traj2 = drivetrain.trajectoryBuilder(traj1.end())
+                .strafeRight(2)
+                .build();
+        drivetrain.followTrajectory(traj2);
 
         //park
-        Trajectory strafeRight = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
-               .strafeRight(47)
+        Trajectory traj3 = drivetrain.trajectoryBuilder(traj2.end())
+                .forward(23)
                 .build();
-        drivetrain.followTrajectory(strafeRight);
+
+
+        Trajectory traj4 = drivetrain.trajectoryBuilder(traj3.end())
+                .strafeRight(104)
+                .build();
+
+
+        Trajectory traj5 = drivetrain.trajectoryBuilder(traj4.end())
+                .back(17)
+                .build();
 
 
 
+        drivetrain.followTrajectory(traj1);
+        drivetrain.followTrajectory(traj2);
+        drivetrain.followTrajectory(traj3);
+        drivetrain.followTrajectory(traj4);
+        drivetrain.followTrajectory(traj5);
 
 
 
     }
 }
 
-  /*  Trajectory goForward = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
+ /*  Trajectory goForward = drivetrain.trajectoryBuilder(new Pose2d(0, 0, 0))
                     .forward(100)
                     .build();
             drivetrain.followTrajectory(goForward);
@@ -63,3 +82,4 @@ public class GremlinsAutoBL extends LinearOpMode {
                     .strafeTo(new Vector2d(0, 50))
                     .build();
             drivetrain.followTrajectory(strafeToPosition);*/
+

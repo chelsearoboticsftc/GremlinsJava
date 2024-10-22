@@ -31,7 +31,7 @@ public class GremlinsAutoRR extends LinearOpMode {
 
         //park
         Trajectory traj2 = drivetrain.trajectoryBuilder(traj1.end())
-                .strafeRight(47)
+                .strafeLeft(20)
                 .build();
 
         drivetrain.followTrajectory(traj1);

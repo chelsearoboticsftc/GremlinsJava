@@ -24,27 +24,31 @@ public class TestAuto extends LinearOpMode {
 
         drivetrain.setPoseEstimate(startPose);
 
-        Trajectory traj1 = drivetrain.trajectoryBuilder(new Pose2d())
-                .forward(25.4)
+        Trajectory traj1 = drivetrain.trajectoryBuilder(startPose)
+                .forward(100) //Stafe Right delay on back wheels
                 .build();
 
-        Trajectory traj2 = drivetrain.trajectoryBuilder(traj1.end())
-                .strafeRight(25.4)
+        Trajectory traj2 = drivetrain.trajectoryBuilder(startPose)
+                .strafeRight(100) //Forward
                 .build();
 
         Trajectory traj3 = drivetrain.trajectoryBuilder(traj2.end())
-                .back(25.4)
+                .back(100)
                 .build();
 
-        Trajectory traj4 = drivetrain.trajectoryBuilder(traj1.end())
-                .strafeLeft(25.4)
+        Trajectory traj4 = drivetrain.trajectoryBuilder(startPose)
+                .forward(100)
+                .build();
+
+        Trajectory traj5 = drivetrain.trajectoryBuilder(traj4.end())
+                .strafeLeft(100)
                 .build();
 
         drivetrain.followTrajectory(traj1);
         drivetrain.followTrajectory(traj2);
         drivetrain.followTrajectory(traj3);
         drivetrain.followTrajectory(traj4);
-        drivetrain.followTrajectory(traj1);
+       drivetrain.followTrajectory(traj5);
 
 
 

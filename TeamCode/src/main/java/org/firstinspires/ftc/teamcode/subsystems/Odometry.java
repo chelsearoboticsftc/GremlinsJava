@@ -24,10 +24,11 @@ public class Odometry {
         octoquad.setSingleEncoderDirection(OdometryConstants.ODO_CENTER,
                                                     OdometryConstants.ODO_CENTER_DIRECTION);
 
+        octoquad.setAllVelocitySampleIntervals(OdometryConstants.VELOCITY_SAMPLE_INTREVAL_MS);
         // Any changes that are made should be saved in FLASH just in case there is a sensor power glitch.
         octoquad.saveParametersToFlash();
 
-        octoquad.setAllVelocitySampleIntervals(OdometryConstants.VELOCITY_SAMPLE_INTREVAL_MS);
+
 
         // Set all the encoder inputs to zero.
         octoquad.resetAllPositions();

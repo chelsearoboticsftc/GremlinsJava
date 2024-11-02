@@ -18,7 +18,7 @@ public class GremlinsAutoRR extends LinearOpMode {
 
         waitForStart();
 
-        Pose2d startPose = new Pose2d(10, -8, Math.toRadians(90));
+        Pose2d startPose = new Pose2d(-16.5,-62, Math.toRadians(90));
 
         drivetrain.setPoseEstimate(startPose);
 

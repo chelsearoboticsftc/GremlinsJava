@@ -18,7 +18,7 @@ public class GremlinsAutoBL extends LinearOpMode {
 
         waitForStart();
 
-        Pose2d startPose = new Pose2d(10, -8, Math.toRadians(90));
+        Pose2d startPose = new Pose2d(39.5,62,Math.toRadians(270));
 
         drivetrain.setPoseEstimate(startPose);
 

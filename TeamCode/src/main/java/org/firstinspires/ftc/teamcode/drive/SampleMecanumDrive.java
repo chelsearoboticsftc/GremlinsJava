@@ -124,7 +124,7 @@ public class SampleMecanumDrive extends MecanumDrive {
         }
 
         // TODO: reverse any motors using DcMotor.setDirection()
-        backLeft.setDirection(DcMotorSimple.Direction.FORWARD);//CODE-e specific!
+        backLeft.setDirection(DcMotorSimple.Direction.REVERSE);//CODE-e specific!
         backRight.setDirection(DcMotorSimple.Direction.FORWARD);//CODE-e specific!
         frontLeft.setDirection(DcMotorSimple.Direction.FORWARD);//CODE-e specific!
         frontRight.setDirection(DcMotorSimple.Direction.FORWARD);//CODE-e specific!

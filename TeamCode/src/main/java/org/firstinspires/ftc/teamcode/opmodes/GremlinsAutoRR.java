@@ -16,7 +16,6 @@ public class GremlinsAutoRR extends LinearOpMode {
 
         SampleMecanumDrive drivetrain = new SampleMecanumDrive(hardwareMap);
 
-        waitForStart();
 
         Pose2d startPose = new Pose2d(-16.5,-62, Math.toRadians(90));
 
@@ -24,24 +23,20 @@ public class GremlinsAutoRR extends LinearOpMode {
 
         //actual auto
 
-        //move away from wall
-        Trajectory traj1 = drivetrain.trajectoryBuilder(new Pose2d())
-                .forward(0.5)
-                .build();
 
-        //park
-        Trajectory traj2 = drivetrain.trajectoryBuilder(traj1.end())
+        Trajectory RRAuto = drivetrain.trajectoryBuilder(new Pose2d())
+
+
+                //Move Away From Wall
+                .forward(0.5)
+
+                //Park
                 .strafeLeft(47)
                 .build();
 
-        drivetrain.followTrajectory(traj1);
-        drivetrain.followTrajectory(traj2);
+        waitForStart();
 
-
-
-
-
-
+        drivetrain.followTrajectory(RRAuto);
     }
 }
 

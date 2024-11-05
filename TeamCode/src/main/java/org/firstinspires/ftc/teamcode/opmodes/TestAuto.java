@@ -50,6 +50,17 @@ public class TestAuto extends LinearOpMode {
         drivetrain.followTrajectory(traj4);
        drivetrain.followTrajectory(traj5);
 
+        /**
+         * Hello Gremlins of the future this is Olivia of 8th grade, Jane 6th and kind
+         * of 7th grade because math, Lily of 6th grade, and Lucy of 8th grade we are the
+         * 2024-2025 gremlins Programmers. This is a test program we wrote so that the
+         * Auton doesn't go explodey. and so Jane doesn't go dead. and so that Olivia
+         * Doesn't Explode and go dead because things broke and we only have 5 min to fix in between
+         * matches. and so Lily Doesn't cry and die because things broken! WE ARE INSANE AND AMAZING GREMLIN
+         * PROGRAMMERS OF THE PAST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+         */
+
+
 
 
 

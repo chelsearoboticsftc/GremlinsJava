@@ -16,32 +16,41 @@ public class GremlindsAutoRL extends LinearOpMode {
 
         SampleMecanumDrive drivetrain = new SampleMecanumDrive(hardwareMap);
 
-
+        waitForStart();
 
         Pose2d startPose = new Pose2d(-39.5,-62,Math.toRadians(90));
 
         drivetrain.setPoseEstimate(startPose);
 
-        //push sample
-        Trajectory RLAuto = drivetrain.trajectoryBuilder(new Pose2d())
 
+        Trajectory traj1 = drivetrain.trajectoryBuilder(startPose)
                 //Push Sample
                 .strafeLeft(22)
-
-                //Move Away From Sample
-                .strafeRight(2)
-
-                //Move Away From Wall
-                .forward(23)
-
-                //Park
-                .strafeRight(104)
-                .back(17)
                 .build();
 
+        Trajectory traj2 = drivetrain.trajectoryBuilder(traj1.end())
+                .strafeRight(12)
+                .build();
 
-        waitForStart();
-        drivetrain.followTrajectory(RLAuto);
+        Trajectory traj3 = drivetrain.trajectoryBuilder(traj2.end())
+                //Move Away From Wall
+                .forward(12)
+                .build();
+
+        Trajectory traj4 = drivetrain.trajectoryBuilder(traj3.end())
+                //Park
+                .strafeRight(112)
+                .build();
+
+        Trajectory traj5 = drivetrain.trajectoryBuilder(traj4.end())
+                .back(35)
+                .build();
+
+        drivetrain.followTrajectory(traj1);
+        drivetrain.followTrajectory(traj2);
+        drivetrain.followTrajectory(traj3);
+        drivetrain.followTrajectory(traj4);
+        drivetrain.followTrajectory(traj5);
 
 }
 

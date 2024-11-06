@@ -27,16 +27,22 @@ public class GremlinsAutoBR extends LinearOpMode {
         //actual auto
 
 
-        Trajectory traj1 = drivetrain.trajectoryBuilder(new Pose2d())
+        waitForStart();
 
-               //Move Away from Wall
+        Trajectory traj1 = drivetrain.trajectoryBuilder(startPose)
+                //Move Away From Wall
                 .forward(0.5)
+                .build();
 
+        Trajectory traj2 = drivetrain.trajectoryBuilder(traj1.end())
                 //Park
                 .strafeRight(47)
                 .build();
 
+
         drivetrain.followTrajectory(traj1);
+        drivetrain.followTrajectory(traj2);
+        
 
 
 

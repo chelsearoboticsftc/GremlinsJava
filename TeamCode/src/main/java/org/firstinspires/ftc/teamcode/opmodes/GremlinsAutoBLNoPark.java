@@ -8,10 +8,8 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 
-
 @Autonomous
-public class GremlinsAutoBR extends LinearOpMode {
-
+public class GremlinsAutoBLNoPark extends LinearOpMode {
     @Override
     public void runOpMode() {
 
@@ -20,33 +18,31 @@ public class GremlinsAutoBR extends LinearOpMode {
 
         waitForStart();
 
-        Pose2d startPose = new Pose2d(-16.5, 62, Math.toRadians(90));
+        Pose2d startPose = new Pose2d(39.5,62,Math.toRadians(270));
 
         drivetrain.setPoseEstimate(startPose);
 
         //actual auto
 
-
-        waitForStart();
-
         Trajectory traj1 = drivetrain.trajectoryBuilder(startPose)
-                //Move Away From Wall
-                .forward(0.5)
+                //Push Sample
+                .strafeLeft(22)
                 .build();
 
         Trajectory traj2 = drivetrain.trajectoryBuilder(traj1.end())
-                //Park
-                .strafeRight(47)
+                .strafeRight(12)
                 .build();
+
+        Trajectory traj3 = drivetrain.trajectoryBuilder(traj2.end())
+                //Move Away From Wall
+                .forward(12)
+                .build();
+
 
 
         drivetrain.followTrajectory(traj1);
         drivetrain.followTrajectory(traj2);
-
-
-
-
-
+        drivetrain.followTrajectory(traj3);
 
 
 

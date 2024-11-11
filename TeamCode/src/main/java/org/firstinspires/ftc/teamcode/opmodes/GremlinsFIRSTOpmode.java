@@ -63,9 +63,9 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
 
 
             //Read Gamepad Drive Input
-            double drive = gamepad2.left_stick_y * -1;
-            double strafe = gamepad2.left_stick_x * -1;
-            double turn = gamepad2.right_stick_x * -1;
+            double drive = gamepad2.left_stick_y * -0.5;
+            double strafe = gamepad2.left_stick_x * -0.5;
+            double turn = gamepad2.right_stick_x * -0.5;
 
 
             // Spinny Go Wee Wee Out

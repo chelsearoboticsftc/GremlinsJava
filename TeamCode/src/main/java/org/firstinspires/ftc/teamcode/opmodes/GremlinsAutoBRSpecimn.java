@@ -32,7 +32,7 @@ public class GremlinsAutoBRSpecimn extends LinearOpMode {
 
         waitForStart();
 
-        Trajectory traj1 = drivetrain.trajectoryBuilder(startPose)
+       /* Trajectory traj1 = drivetrain.trajectoryBuilder(startPose)
                 //Move to bar
                 .forward(22)
                 .build();
@@ -40,19 +40,9 @@ public class GremlinsAutoBRSpecimn extends LinearOpMode {
         Trajectory traj2 = drivetrain.trajectoryBuilder(traj1.end())
                 //line up on x axis
                 .strafeLeft(9)
-                .build();
+                .build();*/
 
-        TrajectorySequence sample = drivetrain.trajectorySequenceBuilder(startPose)
-                .strafeLeft(12)
-                .build();
-
-
-        //4Bar
-
-
-
-
-        Trajectory traj3 = drivetrain.trajectoryBuilder(traj1.end())
+       /* Trajectory traj3 = drivetrain.trajectoryBuilder(traj1.end())
                 //Back up against wall
                 .back(22)
                 .build();
@@ -64,16 +54,35 @@ public class GremlinsAutoBRSpecimn extends LinearOpMode {
 
         drivetrain.followTrajectory(traj1);
 
+         drivetrain.followTrajectory(traj2);
+        drivetrain.followTrajectory(traj3);
+        drivetrain.followTrajectory(traj4);*/
+
+        TrajectorySequence SequenceOne = drivetrain.trajectorySequenceBuilder(startPose)
+                .forward(22)
+                .strafeLeft(9)
+                .build();
+
+
+        //4Bar
+        TrajectorySequence SequenceTwo = drivetrain.trajectorySequenceBuilder(startPose)
+                .back(22)
+                .strafeRight(57)
+                .build();
+
+        drivetrain.followTrajectorySequence(SequenceOne);
+
         while(opModeIsActive()){
             fourBar.setFourBarPosition(250);
             fourBar.isFourBarBusy();
             if(!fourBar.isFourBarBusy()){
                 break;
             }
+
+            drivetrain.followTrajectorySequence(SequenceOne);
+
         }
-        drivetrain.followTrajectory(traj2);
-        drivetrain.followTrajectory(traj3);
-        drivetrain.followTrajectory(traj4);
+
     }
 }
 

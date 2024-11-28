@@ -59,8 +59,8 @@ public class GremlinsAutoBRSpecimn extends LinearOpMode {
         drivetrain.followTrajectory(traj4);*/
 
         TrajectorySequence SequenceOne = drivetrain.trajectorySequenceBuilder(startPose)
-                .forward(22)
-                .strafeLeft(9)
+                .forward(23)
+                .strafeLeft(12)
                 .build();
 
 

@@ -13,7 +13,7 @@ public class FourBar {
     public FourBar(HardwareMap hardwareMap){
         this.fourBar = hardwareMap.get(DcMotorEx.class, "fourBar");
 
-        fourBar.setDirection(DcMotorSimple.Direction.FORWARD);
+        fourBar.setDirection(DcMotorSimple.Direction.REVERSE);
         fourBar.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         fourBar.setVelocityPIDFCoefficients(
                 FourBarConstants.FOURBAR_VEL_P,

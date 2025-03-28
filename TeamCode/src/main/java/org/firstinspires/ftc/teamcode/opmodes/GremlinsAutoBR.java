@@ -97,6 +97,8 @@ public class GremlinsAutoBR extends LinearOpMode {
         drivetrain.followTrajectory(traj11);
 
         /*
+        specimen auton
+
         Trajectory traj1 = drivetrain.trajectoryBuilder(startPose())
             .strafeLeft(6)
             .build(); //line up on x to submersible

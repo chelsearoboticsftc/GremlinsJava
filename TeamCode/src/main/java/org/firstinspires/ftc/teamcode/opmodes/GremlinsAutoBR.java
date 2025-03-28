@@ -96,6 +96,37 @@ public class GremlinsAutoBR extends LinearOpMode {
         drivetrain.followTrajectory(traj10);
         drivetrain.followTrajectory(traj11);
 
+        /*
+        Trajectory traj1 = drivetrain.trajectoryBuilder(startPose())
+            .strafeLeft(6)
+            .build(); //line up on x to submersible
+
+        Trajectory traj2 = drivetrain.trajectoryBuilder(traj1.end())
+            .forward(6)
+            .build(); //come froeward from wall
+
+        Trajectory traj3 = delivery/whatever other thing we name the subsystem.trajectoryBuilder(traj2.end())
+            .(enter subsystem command that we create) //places specimen onto bar
+            .build();
+
+        Trajectory traj4 = delivery.trajectoryBuilder(traj3.end())
+            .(push down on specimen)
+            .build();
+
+         Trajectory traj5 = delivery.trajectoryBuilder(traj4.end())
+            .(pull back arm)
+            .build()
+
+         Trajectory traj6 = drivetrain.trajectoryBuilder(traj5.end())
+            .back(6)
+            .build() //back up from submersible
+
+         Trajectory traj7 = drivetrain.trajectoryBuilder(traj6.end())
+            .strafeRight(6)
+            .build; //park
+         */
+
+
 
 
 
@@ -106,3 +137,8 @@ public class GremlinsAutoBR extends LinearOpMode {
     }
 }
 
+/* move yellow netral peices to the observation zone (to prevent opposing alliance form getting them)
+ move preloaded specimen to the high bar
+ have a good auton
+ 
+ */

@@ -10,7 +10,7 @@ public class linearSlide {
     DcMotorEx linearSlide = null;
 
     public linearSlide(HardwareMap hardwareMap){
-        this.linearSlide = hardwareMap.get(DcMotorEx.class, "linearSlide");
+        this.linearSlide = hardwareMap.get(DcMotorEx.class, "linearSli");
 
         linearSlide.setDirection(DcMotorSimple.Direction.REVERSE);
         linearSlide.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -25,8 +25,8 @@ public class linearSlide {
 
     public void setFourBarPosition(int position){
         linearSlide.setTargetPosition(position);
-        linearSlide.setTargetPositionTolerance(5);
-        linearSlide.setVelocity(2240);
+        linearSlide.setTargetPositionTolerance((int) linearSlideConstants.LINEARSLIDE_POS_TOLERENCE);
+        linearSlide.setVelocity(linearSlideConstants.LINEARSLIDE_SET_VELOCITY);
         linearSlide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 

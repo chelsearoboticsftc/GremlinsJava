@@ -12,9 +12,8 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
-
-
-
+import org.firstinspires.ftc.teamcode.subsystems.driveConstants;
+import org.firstinspires.ftc.teamcode.subsystems.linearSlideConstants;
 
 
 @TeleOp
@@ -63,59 +62,26 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
 
 
             //Read Gamepad Drive Input
-            double drive = gamepad2.left_stick_y * -0.5;
-            double strafe = gamepad2.left_stick_x * -0.5;
-            double turn = gamepad2.right_stick_x * -0.5;
+            double drive = gamepad2.left_stick_y * driveConstants.GAMEPAD_MULITPIER;
+            double strafe = gamepad2.left_stick_x * driveConstants.GAMEPAD_MULITPIER;
+            double turn = gamepad2.right_stick_x * driveConstants.GAMEPAD_MULITPIER;
 
-
-            // Spinny Go Wee Wee Out
-            if (gamepad1.b) {
-                SGWW.setDirection(DcMotor.Direction.REVERSE);
-                SGWW.setPower(0.25);
-            } else {
-                SGWW.setPower(0);
-            }
-
-            //Spinny Go Wee Wee In
-            if (gamepad1.x) {
-                SGWW.setDirection(DcMotor.Direction.FORWARD);
-                SGWW.setPower(0.25);
-            } else {
-                SGWW.setPower(0);
-            }
 
             //Linear Slide Up
             if (gamepad1.dpad_up) {
                 LS.setDirection(DcMotor.Direction.FORWARD);
-                LS.setPower(0.10);
+                LS.setPower(linearSlideConstants.LINEARSIDE_GO_POWER);
             } else {
-                LS.setPower(0);
+                LS.setPower(linearSlideConstants.LINEARSLIDE_STOP_POWER);
             }
 
             //Linear slide down
             if (gamepad1.dpad_down) {
                 LS.setDirection(DcMotor.Direction.REVERSE);
-                LS.setPower(0.10);
+                LS.setPower(linearSlideConstants.LINEARSIDE_GO_POWER);
             } else {
-                LS.setPower(0);
+                LS.setPower(linearSlideConstants.LINEARSLIDE_STOP_POWER);
             }
-
-            //Four Bar Up
-            if (gamepad1.y) {
-                fourBar.setDirection(DcMotor.Direction.FORWARD);
-                fourBar.setPower(0.25);
-            } else {
-                fourBar.setPower(0);
-            }
-
-            //Four Bar Down
-            if (gamepad1.a) {
-                fourBar.setDirection(DcMotor.Direction.REVERSE);
-                fourBar.setPower(0.25);
-            } else {
-                fourBar.setPower(0);
-            }
-
 
             double[] speeds = {
                     (drive+strafe+turn),//frontLeft -> 0
@@ -140,15 +106,15 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
                     speeds[i] /= max;// speeds[i] = speeds[i]/max;
                 }
             }
-            frontRight.setPower(speeds[0]);
-            frontLeft.setPower(speeds[1]);
-            backRight.setPower(speeds[2]);
-            backLeft.setPower(speeds[3]);
+            frontRight.setPower(speeds[(int) driveConstants.FR_SPEED]);
+            frontLeft.setPower(speeds[(int) driveConstants.Fl_SPEED]);
+            backRight.setPower(speeds[(int) driveConstants.BR_SPEED]);
+            backLeft.setPower(speeds[(int) driveConstants.BL_SPEED]);
 
-            telemetry.addData("FRspeed", speeds[0]);
-            telemetry.addData("FLspeed", speeds[1]);
-            telemetry.addData("BRspeed", speeds[2]);
-            telemetry.addData("BLspeed", speeds[3]);
+            telemetry.addData("FRspeed", speeds[(int) driveConstants.FR_SPEED]);
+            telemetry.addData("FLspeed", speeds[(int) driveConstants.Fl_SPEED]);
+            telemetry.addData("BRspeed", speeds[(int) driveConstants.BR_SPEED]);
+            telemetry.addData("BLspeed", speeds[(int) driveConstants.BL_SPEED]);
 
 
 

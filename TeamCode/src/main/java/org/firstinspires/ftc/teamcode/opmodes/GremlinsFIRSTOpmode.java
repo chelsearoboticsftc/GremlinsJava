@@ -9,6 +9,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
+import com.qualcomm.robotcore.hardware.Servo;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
@@ -22,8 +23,7 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
     private DcMotor frontRight = null;
     private DcMotor backLeft = null;
     private DcMotor backRight = null;
-    private DcMotor SGWW = null;
-    private DcMotor fourBar = null;
+    private Servo clawEat;
     private DcMotor LS = null;
 
 
@@ -39,8 +39,7 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
         frontRight = hardwareMap.get(DcMotor.class, "frontRight");
         backLeft   = hardwareMap.get(DcMotor.class, "backLeft");
         backRight  = hardwareMap.get(DcMotor.class, "backRight");
-        SGWW = hardwareMap.get(DcMotor.class, "SGWW");
-        fourBar = hardwareMap.get(DcMotor.class, "fourBar");
+        clawEat = hardwareMap.get(Servo.class, "clawEatAsServo");
         LS = hardwareMap.get(DcMotor.class, "LS");
 
 
@@ -49,8 +48,7 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
         frontRight.setDirection(DcMotorSimple.Direction.FORWARD);
         backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         backRight.setDirection(DcMotorSimple.Direction.FORWARD);
-        SGWW.setDirection(DcMotor.Direction.REVERSE);
-        fourBar.setDirection(DcMotor.Direction.FORWARD);
+        clawEat.setDirection(Servo.Direction.FORWARD);
 
 
 
@@ -83,6 +81,15 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
                 LS.setPower(linearSlideConstants.LINEARSLIDE_STOP_POWER);
             }
 
+            // ClawThingyCode
+            if (gamepad2.x) {
+                // Claw open
+                clawEat.setPosition(linearSlideConstants.CLAW_EAT_OPEN);
+            } else if (gamepad2.b) {
+                // Claw close
+                clawEat.setPosition(linearSlideConstants.CLAW_EAT_CLOSE);
+            }
+
             double[] speeds = {
                     (drive+strafe+turn),//frontLeft -> 0
                     (drive-strafe-turn),//frontRight -> 1
@@ -92,8 +99,8 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
 
 
             //Loop through speeds array and find the maximum magnitude of all 4 speeds
-            double max = 0;
-            for(int i = 0; i < speeds.length;i++){
+            double max = driveConstants.MAX_THINGY;
+            for(int i = (int) driveConstants.I_THINGY; i < speeds.length; i++){
                 if (speeds[i] > Math.abs(max)){
                     max = Math.abs(speeds[i]);
                 }
@@ -101,8 +108,8 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
 
 
             // if and only if max is greater than one then normalize to the range of [-1,1]
-            if (max > 1){
-                for(int i = 0; i < speeds.length;i++){
+            if (max > driveConstants.ONE){
+                for(int i = (int) driveConstants.I_THINGY; i < speeds.length; i++){
                     speeds[i] /= max;// speeds[i] = speeds[i]/max;
                 }
             }

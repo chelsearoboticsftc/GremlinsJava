@@ -10,4 +10,6 @@ public class linearSlideConstants {
     final public static double LINEARSLIDE_SET_VELOCITY = 2240;
     final public static double LINEARSIDE_GO_POWER = 0.1;
     final public static double LINEARSLIDE_STOP_POWER = 0;
+    final public static double CLAW_EAT_OPEN = 1;
+    final public static double CLAW_EAT_CLOSE = 0.47;
 }

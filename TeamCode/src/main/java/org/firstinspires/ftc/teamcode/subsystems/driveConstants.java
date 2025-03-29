@@ -4,5 +4,7 @@ package org.firstinspires.ftc.teamcode.subsystems;public class driveConstants {
     public static double Fl_SPEED = 1;
     public static double BR_SPEED = 2;
     public static double BL_SPEED = 3;
-
+    public static double MAX_THINGY = 0;
+    public static double I_THINGY = 0;
+    public static double ONE = 1;
 }

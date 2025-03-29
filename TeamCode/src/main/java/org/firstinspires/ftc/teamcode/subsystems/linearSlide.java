@@ -10,7 +10,7 @@ public class linearSlide {
     DcMotorEx linearSlide = null;
 
     public linearSlide(HardwareMap hardwareMap){
-        this.linearSlide = hardwareMap.get(DcMotorEx.class, "linearSli");
+        this.linearSlide = hardwareMap.get(DcMotorEx.class, "linearSlide");
 
         linearSlide.setDirection(DcMotorSimple.Direction.REVERSE);
         linearSlide.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);

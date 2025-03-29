@@ -100,11 +100,11 @@ public class GremlinsAutoBR extends LinearOpMode {
         specimen auton
 
         Trajectory traj1 = drivetrain.trajectoryBuilder(startPose())
-            .strafeLeft(6)
+            .strafeLeft(12)
             .build(); //line up on x to submersible
 
         Trajectory traj2 = drivetrain.trajectoryBuilder(traj1.end())
-            .forward(6)
+            .forward(27)
             .build(); //come froeward from wall
 
         Trajectory traj3 = delivery/whatever other thing we name the subsystem.trajectoryBuilder(traj2.end())
@@ -120,11 +120,11 @@ public class GremlinsAutoBR extends LinearOpMode {
             .build()
 
          Trajectory traj6 = drivetrain.trajectoryBuilder(traj5.end())
-            .back(6)
+            .back(27)
             .build() //back up from submersible
 
          Trajectory traj7 = drivetrain.trajectoryBuilder(traj6.end())
-            .strafeRight(6)
+            .strafeRight(63)
             .build; //park
          */
 

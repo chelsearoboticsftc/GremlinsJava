@@ -124,6 +124,38 @@ public class GremlinsAutoBL extends LinearOpMode {
         drivetrain.followTrajectory(traj19);
 
 
+        /*
+        specimen auton
+
+        Trajectory traj1 = drivetrain.trajectoryBuilder(startPose())
+            .strafeRight(32)
+            .build(); //line up on x to submersible
+
+        Trajectory traj2 = drivetrain.trajectoryBuilder(traj1.end())
+            .forward(27)
+            .build(); //come froeward from wall
+
+        Trajectory traj3 = delivery/whatever other thing we name the subsystem.trajectoryBuilder(traj2.end())
+            .(enter subsystem command that we create) //places specimen onto bar
+            .build();
+
+        Trajectory traj4 = delivery.trajectoryBuilder(traj3.end())
+            .(push down on specimen)
+            .build();
+
+         Trajectory traj5 = delivery.trajectoryBuilder(traj4.end())
+            .(pull back arm)
+            .build()
+
+         Trajectory traj6 = drivetrain.trajectoryBuilder(traj5.end())
+            .back(27)
+            .build() //back up from submersible
+
+         Trajectory traj7 = drivetrain.trajectoryBuilder(traj6.end())
+            .strafeRight(68.5)
+            .build; //park
+         */
+
 
 
     }

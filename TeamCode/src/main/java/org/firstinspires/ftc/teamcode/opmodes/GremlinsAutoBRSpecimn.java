@@ -1,36 +1,36 @@
-package org.firstinspires.ftc.teamcode.opmodes;
+//package org.firstinspires.ftc.teamcode.opmodes;
 
 
-import com.acmerobotics.roadrunner.geometry.Pose2d;
-import com.acmerobotics.roadrunner.trajectory.Trajectory;
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+//import com.acmerobotics.roadrunner.geometry.Pose2d;
+//import com.acmerobotics.roadrunner.trajectory.Trajectory;
+//import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+//import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
+//import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 
-import org.firstinspires.ftc.teamcode.subsystems.FourBar;
-import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
+//import org.firstinspires.ftc.teamcode.subsystems.FourBar;
+//import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
 
-@Autonomous
-public class GremlinsAutoBRSpecimn extends LinearOpMode {
+//@Autonomous
+//public class GremlinsAutoBRSpecimn extends LinearOpMode {
 
-    @Override
-    public void runOpMode() {
+  //  @Override
+    //public void runOpMode() {
 
-        FourBar fourBar = new FourBar(hardwareMap);
-        SampleMecanumDrive drivetrain = new SampleMecanumDrive(hardwareMap);
+      //  FourBar fourBar = new FourBar(hardwareMap);
+        //SampleMecanumDrive drivetrain = new SampleMecanumDrive(hardwareMap);
 
-        waitForStart();
+        //waitForStart();
 
-        Pose2d startPose = new Pose2d(-16.5, 62, Math.toRadians(90));
+        //Pose2d startPose = new Pose2d(-16.5, 62, Math.toRadians(90));
 
-        drivetrain.setPoseEstimate(startPose);
+        //drivetrain.setPoseEstimate(startPose);
 
         //actual auto
 
 
-        waitForStart();
+        //waitForStart();
 
        /* Trajectory traj1 = drivetrain.trajectoryBuilder(startPose)
                 //Move to bar
@@ -58,31 +58,31 @@ public class GremlinsAutoBRSpecimn extends LinearOpMode {
         drivetrain.followTrajectory(traj3);
         drivetrain.followTrajectory(traj4);*/
 
-        TrajectorySequence SequenceOne = drivetrain.trajectorySequenceBuilder(startPose)
-                .forward(23)
-                .strafeLeft(12)
-                .build();
+       // TrajectorySequence SequenceOne = drivetrain.trajectorySequenceBuilder(startPose)
+         //       .forward(23)
+           //     .strafeLeft(12)
+             //   .build();
 
 
         //4Bar
-        TrajectorySequence SequenceTwo = drivetrain.trajectorySequenceBuilder(startPose)
-                .back(22)
-                .strafeRight(57)
-                .build();
+      //  TrajectorySequence SequenceTwo = drivetrain.trajectorySequenceBuilder(startPose)
+        //        .back(22)
+          //      .strafeRight(57)
+            //    .build();
 
-        drivetrain.followTrajectorySequence(SequenceOne);
+//        drivetrain.followTrajectorySequence(SequenceOne);
 
-        while(opModeIsActive()){
-            fourBar.setFourBarPosition(250);
-            fourBar.isFourBarBusy();
-            if(!fourBar.isFourBarBusy()){
-                break;
-            }
+  //      while(opModeIsActive()){
+    //        fourBar.setFourBarPosition(250);
+      //      fourBar.isFourBarBusy();
+        //    if(!fourBar.isFourBarBusy()){
+          //      break;
+            //}
 
-            drivetrain.followTrajectorySequence(SequenceOne);
+            //drivetrain.followTrajectorySequence(SequenceOne);
 
-        }
+        //}
 
-    }
-}
+    //}
+//}
 

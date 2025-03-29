@@ -84,6 +84,14 @@ public class GremlindsAutoRL extends LinearOpMode {
          Trajectory traj7 = drivetrain.trajectoryBuilder(traj6.end())
             .strafeRight(68.5)
             .build; //park
+
+        drivetrain.followTrajectory(traj1);
+        drivetrain.followTrajectory(traj2);
+        drivetrain.followTrajectory(traj3);
+        drivetrain.followTrajectory(traj4);
+        drivetrain.followTrajectory(traj5);
+        drivetrain.followTrajectory(traj6);
+        drivetrain.followTrajectory(traj7);
          */
 
 }

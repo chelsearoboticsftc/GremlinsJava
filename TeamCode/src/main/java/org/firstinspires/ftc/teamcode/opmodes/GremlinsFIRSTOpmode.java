@@ -1,20 +1,14 @@
 package org.firstinspires.ftc.teamcode.opmodes;
 
 
-import com.acmerobotics.roadrunner.geometry.Pose2d;
-import com.acmerobotics.roadrunner.geometry.Vector2d;
-import com.acmerobotics.roadrunner.trajectory.Trajectory;
-import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
-import com.qualcomm.robotcore.hardware.HardwareMap;
 
-import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 import org.firstinspires.ftc.teamcode.subsystems.driveConstants;
-import org.firstinspires.ftc.teamcode.subsystems.linearSlideConstants;
+import org.firstinspires.ftc.teamcode.subsystems.deliveryConstants;
 
 
 @TeleOp
@@ -68,26 +62,26 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
             //Linear Slide Up
             if (gamepad1.dpad_up) {
                 LS.setDirection(DcMotor.Direction.FORWARD);
-                LS.setPower(linearSlideConstants.LINEARSIDE_GO_POWER);
+                LS.setPower(deliveryConstants.LINEARSIDE_GO_POWER);
             } else {
-                LS.setPower(linearSlideConstants.LINEARSLIDE_STOP_POWER);
+                LS.setPower(deliveryConstants.LINEARSLIDE_STOP_POWER);
             }
 
             //Linear slide down
             if (gamepad1.dpad_down) {
                 LS.setDirection(DcMotor.Direction.REVERSE);
-                LS.setPower(linearSlideConstants.LINEARSIDE_GO_POWER);
+                LS.setPower(deliveryConstants.LINEARSIDE_GO_POWER);
             } else {
-                LS.setPower(linearSlideConstants.LINEARSLIDE_STOP_POWER);
+                LS.setPower(deliveryConstants.LINEARSLIDE_STOP_POWER);
             }
 
             // ClawThingyCode
             if (gamepad2.x) {
                 // Claw open
-                clawEat.setPosition(linearSlideConstants.CLAW_EAT_OPEN);
+                clawEat.setPosition(deliveryConstants.CLAW_EAT_OPEN);
             } else if (gamepad2.b) {
                 // Claw close
-                clawEat.setPosition(linearSlideConstants.CLAW_EAT_CLOSE);
+                clawEat.setPosition(deliveryConstants.CLAW_EAT_CLOSE);
             }
 
             double[] speeds = {

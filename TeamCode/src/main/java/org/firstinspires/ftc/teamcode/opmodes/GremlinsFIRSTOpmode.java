@@ -17,7 +17,7 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
     private DcMotor frontRight = null;
     private DcMotor backLeft = null;
     private DcMotor backRight = null;
-    private Servo clawEat;
+    private Servo clawEat = null;
     private DcMotor LS = null;
 
 

@@ -12,4 +12,5 @@ public class deliveryConstants {
     final public static double LINEARSLIDE_STOP_POWER = 0;
     final public static double CLAW_EAT_OPEN = 1;
     final public static double CLAW_EAT_CLOSE = 0.47;
+    final public static double MAX_LINEAR_SLIDE_VELOCITY = 1;
 }

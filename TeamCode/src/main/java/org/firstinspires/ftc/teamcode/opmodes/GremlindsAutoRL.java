@@ -23,7 +23,7 @@ public class GremlindsAutoRL extends LinearOpMode {
         drivetrain.setPoseEstimate(startPose);
 
 
-        Trajectory traj1 = drivetrain.trajectoryBuilder(startPose)
+        /*Trajectory traj1 = drivetrain.trajectoryBuilder(startPose)
                 //Push Sample
                 .strafeLeft(22)
                 .build();
@@ -51,10 +51,10 @@ public class GremlindsAutoRL extends LinearOpMode {
         drivetrain.followTrajectory(traj3);
         drivetrain.followTrajectory(traj4);
         drivetrain.followTrajectory(traj5);
+/*
 
 
 
-         /*
         specimen auton
 
         Trajectory traj1 = drivetrain.trajectoryBuilder(startPose())
@@ -65,17 +65,30 @@ public class GremlindsAutoRL extends LinearOpMode {
             .forward(27)
             .build(); //come froeward from wall
 
-        Trajectory traj3 = delivery/whatever other thing we name the subsystem.trajectoryBuilder(traj2.end())
-            .(enter subsystem command that we create) //places specimen onto bar
-            .build();
+        Trajectory traj3 = driveTrain.trajectoryBuilder(traj2.end())
+       while(opModeIsActive()){
+            linearSlide.setLSPosition(deliveryConstants.HIGH_SPECIMEN_BAR);
+          linearSlide.isLSBusy();
+            if(!linearSlide.isLSBusy()){
+                break;
+            }
 
-        Trajectory traj4 = delivery.trajectoryBuilder(traj3.end())
-            .(push down on specimen)
-            .build();
+        Trajectory traj4 = driveTrain.trajectoryBuilder(traj3.end())
+       while(opModeIsActive()){
+            linearSlide.setLSPosition(deliveryConstants.PUSH_DOWN_ON_SPECIMEN_HB);
+          linearSlide.isLSBusy();
+            if(!linearSlide.isLSBusy()){
+                break;
 
-         Trajectory traj5 = delivery.trajectoryBuilder(traj4.end())
-            .(pull back arm)
-            .build()
+            }
+
+         Trajectory traj5 = driveTrain.trajectoryBuilder(traj4.end())
+            while(opModeIsActive()){
+            linearSlide.setLSPosition(deliveryConstants.PUSH_DOWN_ON_SPECIMEN_HB);
+          linearSlide.isLSBusy();
+            if(!linearSlide.isLSBusy()){
+                break;
+
 
          Trajectory traj6 = drivetrain.trajectoryBuilder(traj5.end())
             .back(27)

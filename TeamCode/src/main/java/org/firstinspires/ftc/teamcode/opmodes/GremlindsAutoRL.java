@@ -105,7 +105,9 @@ public class GremlindsAutoRL extends LinearOpMode {
         drivetrain.followTrajectory(traj5);
         drivetrain.followTrajectory(traj6);
         drivetrain.followTrajectory(traj7);
-         */
+
+        hello! we are gremlins!         */
+
 
 }
 

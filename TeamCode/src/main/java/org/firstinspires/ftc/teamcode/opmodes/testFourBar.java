@@ -1,31 +1,34 @@
-package org.firstinspires.ftc.teamcode.opmodes;
+//package org.firstinspires.ftc.teamcode.opmodes;
 
-/*import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
-import org.firstinspires.ftc.teamcode.subsystems.FourBar;
+//import org.firstinspires.ftc.teamcode.subsystems.LS;
 
-@TeleOp
+/*@TeleOp
 public class testFourBar extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
        double maxFourBarVelocity = 0;
-        FourBar fourBar = new FourBar(hardwareMap);
+        LS linearSlide = new LS(hardwareMap);
         waitForStart();
          while (opModeIsActive()){
 
-           /*  if(gamepad1.a){
-                 fourBar.setFourBarPower(0.80);
+            if(gamepad1.a){
+                 linearSlide.setLSPower(0.80);
              } else if (gamepad1.x) {
-                fourBar.setFourBarPower(-0.80);
+                linearSlide.setLSPower(-0.80);
              } else {
-                 fourBar.setFourBarPower(0);
-             }*/
-           /*  if(gamepad1.y){
-                 fourBar.setFourBarPosition(250);
+                 linearSlide.setLSPower(0);
+             }
+
+
+             HeLlO wE aRe GrEmLiNs
+            if(gamepad1.y){
+                 linearSlide.setLSPosition(250);
              }
              else if(gamepad1.a){
-                 fourBar.setFourBarPosition(0);
+                 linearSlide.setLSPosition(0);
              }
              if(Math.abs(fourBar.getFourBarVelocity())>maxFourBarVelocity){
                  maxFourBarVelocity = (Math.abs(fourBar.getFourBarVelocity()));
@@ -36,19 +39,19 @@ public class testFourBar extends LinearOpMode {
              telemetry.update();
          }
     }
-}*/
+}
 
 //REVISION FOR LINEAR SLIDE
 
 
-/*import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import org.firstinspires.ftc.teamcode.subsystems.deliverySUbsysytem;
 import.org.firstinspires.ftc.teamcode.subsystems.deliveryConstants;
- */
 
-/*@TeleOp
+
+@TeleOp
 public class testLinearSLideTest extends LinearOpMode {
     @Override
     public void runOpMode() throws InterruptedException {
@@ -57,14 +60,14 @@ public class testLinearSLideTest extends LinearOpMode {
         waitForStart();
          while (opModeIsActive()){
 
-           /*  if(gamepad1.a){
+             if(gamepad1.a){
                  linearSLide.setLSPower(0.80);
              } else if (gamepad1.x) {
                 linearSlide.setLSPower(-0.80);
              } else {
                  linearSlide.setLSPower(0);
-             }*/
-           /*  if(gamepad1.y){
+             }
+             if(gamepad1.y){
                  linearSlide.setLSPosition(250);
              }
 
@@ -80,4 +83,8 @@ public class testLinearSLideTest extends LinearOpMode {
              telemetry.update();
          }
     }
-}*/
+}
+
+ */
+
+

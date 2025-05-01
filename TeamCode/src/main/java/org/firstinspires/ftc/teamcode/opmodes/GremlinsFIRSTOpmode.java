@@ -19,6 +19,7 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
     private DcMotor backRight = null;
     private Servo clawEat = null;
     private DcMotor LS = null;
+    private Servo arm = null;
 
 
 
@@ -34,6 +35,7 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
         backLeft   = hardwareMap.get(DcMotor.class, "backLeft");
         backRight  = hardwareMap.get(DcMotor.class, "backRight");
         clawEat = hardwareMap.get(Servo.class, "clawEatAsServo");
+        arm = hardwareMap.get(Servo.class, "arm");
         LS = hardwareMap.get(DcMotor.class, "LS");
 
 
@@ -43,6 +45,7 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
         backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         backRight.setDirection(DcMotorSimple.Direction.FORWARD);
         clawEat.setDirection(Servo.Direction.FORWARD);
+        arm.setDirection(Servo.Direction.FORWARD);
 
 
 

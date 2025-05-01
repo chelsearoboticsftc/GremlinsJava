@@ -4,15 +4,19 @@ import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareMap;
+import com.qualcomm.robotcore.hardware.Servo;
 
 public class deliverySUbsystem {
 
     DcMotorEx linearSlide = null;
+    Servo arm = null;
 
     public deliverySUbsystem(HardwareMap hardwareMap){
-        this.linearSlide = hardwareMap.get(DcMotorEx.class, "linearSlide");
+        this.linearSlide = hardwareMap.get(DcMotorEx.class, "LS");
+        this.arm = hardwareMap.get(Servo.class, "arm");
 
         linearSlide.setDirection(DcMotorSimple.Direction.REVERSE);
+        arm.setDirection(Servo.Direction.FORWARD);
         linearSlide.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         linearSlide.setVelocityPIDFCoefficients(
                 deliveryConstants.LINEARSLIDE_VEL_P,

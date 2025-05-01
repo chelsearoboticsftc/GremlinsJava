@@ -26,35 +26,40 @@ public class GremlindsAutoRL extends LinearOpMode {
         drivetrain.setPoseEstimate(startPose);
 
 
-        Trajectory traj1 = drivetrain.trajectoryBuilder(startPose)
-                //Push Sample
-                .strafeLeft(22)
-                .build();
+        //specimen auton
+
+        Trajectory traj1 = drivetrain.trajectoryBuilder(startPose())
+                .strafeRight(32)
+                .build(); //line up on x to submersible
 
         Trajectory traj2 = drivetrain.trajectoryBuilder(traj1.end())
-                .strafeRight(12)
-                .build();
+                .forward(27)
+                .build(); //come froeward from wall
 
         Trajectory traj3 = drivetrain.trajectoryBuilder(traj2.end())
-                //Move Away From Wall
-                .forward(12)
+                .deliverySUbsystems.setLSPosition(deliveryConstants.HIGH_SPECIMEN_BAR)
                 .build();
 
         Trajectory traj4 = drivetrain.trajectoryBuilder(traj3.end())
-                //Park
-                .strafeRight(112)
-                .build();
-
-        Trajectory traj5 = drivetrain.trajectoryBuilder(traj4.end())
                 .deliverySUbsystems.setLSPosition(deliveryConstants.PUSH_DOWN_ON_SPECIMEN_HB)
                 .build();
 
 
-                drivetrain.followTrajectory(traj1);
-        drivetrain.followTrajectory(traj2);
-        drivetrain.followTrajectory(traj3);
-        drivetrain.followTrajectory(traj4);
-        drivetrain.followTrajectory(traj5);
+        Trajectory traj5 = drivetrain.trajectoryBuilder(traj4.end())
+                .back(27)
+                .build();
+                        //back up from submersible
+
+        Trajectory traj6 = drivetrain.trajectoryBuilder(traj5.end())
+                .strafeRight(68.5)
+                .build(); //park
+
+                        drivetrain.followTrajectory(traj1);
+                        drivetrain.followTrajectory(traj2);
+                        drivetrain.followTrajectory(traj3);
+                        drivetrain.followTrajectory(traj4);
+                        drivetrain.followTrajectory(traj5);
+                        drivetrain.followTrajectory(traj6);
     }
 }
 

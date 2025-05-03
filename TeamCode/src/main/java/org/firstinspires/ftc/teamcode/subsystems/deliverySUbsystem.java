@@ -10,10 +10,12 @@ public class deliverySUbsystem {
 
     DcMotorEx linearSlide = null;
     Servo arm = null;
+    Servo claw = null;
 
     public deliverySUbsystem(HardwareMap hardwareMap){
         this.linearSlide = hardwareMap.get(DcMotorEx.class, "LS");
         this.arm = hardwareMap.get(Servo.class, "arm");
+        this.claw = hardwareMap.get(Servo.class, "clawEat");
 
         linearSlide.setDirection(DcMotorSimple.Direction.REVERSE);
         arm.setDirection(Servo.Direction.FORWARD);
@@ -27,12 +29,21 @@ public class deliverySUbsystem {
         linearSlide.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     }
 
-    public void setFourBarPosition(int position){
+    public void setLinearSlidePosition(int position){
         linearSlide.setTargetPosition(position);
         linearSlide.setTargetPositionTolerance((int) deliveryConstants.LINEARSLIDE_POS_TOLERENCE);
         linearSlide.setVelocity(deliveryConstants.LINEARSLIDE_SET_VELOCITY);
         linearSlide.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
+
+    public void setArmPosition(double position){
+        arm.setPosition(position);
+    }
+
+    public void setClawPosition(double position){
+        claw.setPosition(position);
+    }
+
 
     public int getLinearSlidePosition(){
         return linearSlide.getCurrentPosition();

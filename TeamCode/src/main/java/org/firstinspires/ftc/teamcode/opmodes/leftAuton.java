@@ -26,10 +26,9 @@ public class leftAuton extends LinearOpMode {
     State currentState = State.IDLE;
     int targetLiftPosition;
     double targetClawPosition;
-    double targetArmPosition;
+    int targetArmPosition;
 
     ElapsedTime waitTimer = new ElapsedTime();
-    double armDeployTime = 1;
     double clawOpenTime = 1;
 
 
@@ -84,7 +83,7 @@ public class leftAuton extends LinearOpMode {
                     }
                     break;
                 case MOVE_ARM_OUT:
-                    if((waitTimer.seconds() >= armDeployTime)){
+                    if(!deliverySUbsystem.arm.isBusy()) {
                         targetLiftPosition = deliveryConstants.PUSH_DOWN_ON_SPECIMEN_HB;
                         currentState = State.DELIVER_SAMPLE;
                     }

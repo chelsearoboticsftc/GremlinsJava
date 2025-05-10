@@ -13,6 +13,18 @@ public class deliveryConstants {
     final public static double LINEARSIDE_GO_POWER = 0.1;
     final public static double LINEARSLIDE_STOP_POWER = 0;
 
+    final public static double ARM_VEL_FF = 15.906;
+    final public static double ARM_VEL_P = 1.5906;
+    final public static double ARM_VEL_I = 0.15906;
+    final public static double ARM_VEL_D = 0;
+    final public static double ARM_POS_P = 5;
+    final public static double ARM_POS_TOLERENCE = 5;
+
+    final public static double ARM_SET_VELOCITY = 2240;
+    final public static double MAX_ARM_VELOCITY = 1;
+    final public static double ARM_GO_POWER = 0.1;
+    final public static double ARM_STOP_POWER = 0;
+
     final public static double CLAW_EAT_OPEN = 1;
     final public static double CLAW_EAT_CLOSE = 0.47;
 
@@ -29,7 +41,7 @@ public class deliveryConstants {
 
     final public static int HOME = 0;
 
-    final public static double ARM_HB_POSITION = 1;
+    final public static int ARM_HB_POSITION = 1;
 
     final public static int SPECIMEN_OFF_WALL_GRAB = 50;
     final public static int SPECIMAN_OFF_WALL_CLEAR = 60;

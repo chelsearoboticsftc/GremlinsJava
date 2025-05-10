@@ -1,4 +1,4 @@
-package org.firstinspires.ftc.teamcode.opmodes;
+/*package org.firstinspires.ftc.teamcode.opmodes;
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.trajectory.Trajectory;
@@ -29,7 +29,7 @@ public class GremlindsAutoRL extends LinearOpMode {
     double targetArmPosition;
 
     ElapsedTime waitTimer = new ElapsedTime();
-    double armDeployTime = 1;
+    //double armDeployTime = 1;
     double clawOpenTime = 1;
 
 
@@ -52,9 +52,9 @@ public class GremlindsAutoRL extends LinearOpMode {
                 .forward(27)
                 .build(); //line up on x to submersible
 
-       /* Trajectory traj2 = drivetrain.trajectoryBuilder(traj1.end())
+        Trajectory traj2 = drivetrain.trajectoryBuilder(traj1.end())
                 .forward(27)
-                .build(); //come froeward from wall*/
+                .build(); //come froeward from wall
 
 
         TrajectorySequence traj5 = drivetrain.trajectorySequenceBuilder(traj1.end())
@@ -63,9 +63,9 @@ public class GremlindsAutoRL extends LinearOpMode {
                 .build();
         //back up from submersible
 
-      /*  Trajectory traj6 = drivetrain.trajectoryBuilder(traj5.end())
+       Trajectory traj6 = drivetrain.trajectoryBuilder(traj5.end())
                 .strafeRight(68.5)
-                .build(); //park*/
+                .build(); //park
 
 
         waitForStart();
@@ -148,7 +148,7 @@ public class GremlindsAutoRL extends LinearOpMode {
         drivetrain.followTrajectory(traj3);
         drivetrain.followTrajectory(traj4);
         drivetrain.followTrajectory(traj5);
-*/
+
 
 
         //specimen auton

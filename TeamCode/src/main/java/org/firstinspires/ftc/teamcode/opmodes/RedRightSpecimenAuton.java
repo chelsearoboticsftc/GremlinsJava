@@ -1,11 +1,9 @@
 package org.firstinspires.ftc.teamcode.opmodes;
 
 import com.acmerobotics.roadrunner.geometry.Pose2d;
-import com.acmerobotics.roadrunner.trajectory.Trajectory;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.util.ElapsedTime;
-
 
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 import org.firstinspires.ftc.teamcode.subsystems.deliveryConstants;
@@ -13,7 +11,7 @@ import org.firstinspires.ftc.teamcode.subsystems.deliverySUbsystem;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
 @Autonomous
-public class rightAuton extends LinearOpMode {
+public class RedRightSpecimenAuton extends LinearOpMode {
     enum State {
         IDLE,
         MOVE_TO_SUB,
@@ -39,7 +37,7 @@ public class rightAuton extends LinearOpMode {
         SampleMecanumDrive drivetrain = new SampleMecanumDrive(hardwareMap);
         deliverySUbsystem deliverySUbsystem = new deliverySUbsystem(hardwareMap);
 
-        Pose2d startPose = new Pose2d(-39.5, -62, Math.toRadians(90));
+        Pose2d startPose = new Pose2d(-16.5, -62, Math.toRadians(90));
 
         drivetrain.setPoseEstimate(startPose);
 

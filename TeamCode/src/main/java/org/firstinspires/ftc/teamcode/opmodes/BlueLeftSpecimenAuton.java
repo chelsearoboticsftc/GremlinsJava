@@ -13,7 +13,7 @@ import org.firstinspires.ftc.teamcode.subsystems.deliverySUbsystem;
 import org.firstinspires.ftc.teamcode.trajectorysequence.TrajectorySequence;
 
 @Autonomous
-public class leftAuton extends LinearOpMode {
+public class BlueLeftSpecimenAuton extends LinearOpMode {
     enum State {
         IDLE,
         MOVE_TO_SUB,
@@ -39,7 +39,7 @@ public class leftAuton extends LinearOpMode {
         SampleMecanumDrive drivetrain = new SampleMecanumDrive(hardwareMap);
         deliverySUbsystem deliverySUbsystem = new deliverySUbsystem(hardwareMap);
 
-        Pose2d startPose = new Pose2d(-39.5, -62, Math.toRadians(90));
+        Pose2d startPose = new Pose2d(39.5, 62, Math.toRadians(270));
 
         drivetrain.setPoseEstimate(startPose);
 
@@ -75,7 +75,7 @@ public class leftAuton extends LinearOpMode {
         while ((opModeIsActive()) && (!isStopRequested())) {
             switch (currentState) {
                 case MOVE_TO_SUB:
-                    if((!drivetrain.isBusy())&&
+                    if ((!drivetrain.isBusy()) &&
                             (!deliverySUbsystem.isLinearSlideBusy())) {
                         targetArmPosition = deliveryConstants.ARM_HB_POSITION;
                         waitTimer.reset();
@@ -83,26 +83,26 @@ public class leftAuton extends LinearOpMode {
                     }
                     break;
                 case MOVE_ARM_OUT:
-                    if(!deliverySUbsystem.arm.isBusy()) {
+                    if (!deliverySUbsystem.arm.isBusy()) {
                         targetLiftPosition = deliveryConstants.PUSH_DOWN_ON_SPECIMEN_HB;
                         currentState = State.DELIVER_SAMPLE;
                     }
                     break;
                 case DELIVER_SAMPLE:
-                    if(!deliverySUbsystem.isLinearSlideBusy()){
+                    if (!deliverySUbsystem.isLinearSlideBusy()) {
                         targetClawPosition = deliveryConstants.CLAW_EAT_OPEN;
                         waitTimer.reset();
                         currentState = State.RELEASE_SPECIEN;
                     }
                     break;
                 case RELEASE_SPECIEN:
-                    if(waitTimer.seconds() >= clawOpenTime){
+                    if (waitTimer.seconds() >= clawOpenTime) {
                         drivetrain.followTrajectorySequenceAsync(traj5);
                         currentState = State.MOVE_TO_PARK;
                     }
                     break;
                 case MOVE_TO_PARK:
-                    if(!drivetrain.isBusy()){
+                    if (!drivetrain.isBusy()) {
                         currentState = State.IDLE;
                     }
                     break;

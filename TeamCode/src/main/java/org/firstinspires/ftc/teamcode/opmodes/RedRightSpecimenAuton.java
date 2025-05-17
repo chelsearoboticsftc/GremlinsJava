@@ -45,7 +45,7 @@ public class RedRightSpecimenAuton extends LinearOpMode {
         //specimen auton
 
         TrajectorySequence traj1 = drivetrain.trajectorySequenceBuilder(startPose)
-                .strafeRight(32)
+                .strafeLeft(12)
                 .forward(27)
                 .build(); //line up on x to submersible
 
@@ -56,7 +56,7 @@ public class RedRightSpecimenAuton extends LinearOpMode {
 
         TrajectorySequence traj5 = drivetrain.trajectorySequenceBuilder(traj1.end())
                 .back(27)
-                .strafeRight(68.5)
+                .strafeRight(63)
                 .build();
         //back up from submersible
 

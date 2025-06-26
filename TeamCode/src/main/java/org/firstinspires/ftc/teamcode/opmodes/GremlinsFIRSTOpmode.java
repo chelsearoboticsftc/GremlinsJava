@@ -17,9 +17,9 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
     private DcMotor frontRight = null;
     private DcMotor backLeft = null;
     private DcMotor backRight = null;
-    private Servo clawEat = null;
-    private DcMotor LS = null;
-    private Servo arm = null;
+    //private Servo clawEat = null;
+    //private DcMotor LS = null;
+    //private Servo arm = null;
 
 
 
@@ -34,9 +34,9 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
         frontRight = hardwareMap.get(DcMotor.class, "frontRight");
         backLeft   = hardwareMap.get(DcMotor.class, "backLeft");
         backRight  = hardwareMap.get(DcMotor.class, "backRight");
-        clawEat = hardwareMap.get(Servo.class, "clawEatAsServo");
-        arm = hardwareMap.get(Servo.class, "arm");
-        LS = hardwareMap.get(DcMotor.class, "LS");
+      //  clawEat = hardwareMap.get(Servo.class, "clawEatAsServo");
+        //arm = hardwareMap.get(Servo.class, "arm");
+       // LS = hardwareMap.get(DcMotor.class, "LS");
 
 
         //Here we are setting the motor directions for positive power
@@ -44,8 +44,8 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
         frontRight.setDirection(DcMotorSimple.Direction.FORWARD);
         backLeft.setDirection(DcMotorSimple.Direction.FORWARD);
         backRight.setDirection(DcMotorSimple.Direction.FORWARD);
-        clawEat.setDirection(Servo.Direction.FORWARD);
-        arm.setDirection(Servo.Direction.FORWARD);
+       // clawEat.setDirection(Servo.Direction.FORWARD);
+       // arm.setDirection(Servo.Direction.FORWARD);
 
 
 
@@ -63,29 +63,29 @@ public class GremlinsFIRSTOpmode extends LinearOpMode {
 
 
             //Linear Slide Up
-            if (gamepad1.dpad_up) {
+          /*  if (gamepad1.dpad_up) {
                 LS.setDirection(DcMotor.Direction.FORWARD);
                 LS.setPower(deliveryConstants.LINEARSIDE_GO_POWER);
             } else {
                 LS.setPower(deliveryConstants.LINEARSLIDE_STOP_POWER);
-            }
+            }*/
 
             //Linear slide down
-            if (gamepad1.dpad_down) {
+           /* if (gamepad1.dpad_down) {
                 LS.setDirection(DcMotor.Direction.REVERSE);
                 LS.setPower(deliveryConstants.LINEARSIDE_GO_POWER);
             } else {
                 LS.setPower(deliveryConstants.LINEARSLIDE_STOP_POWER);
-            }
+            }*/
 
             // ClawThingyCode
-            if (gamepad2.x) {
+           /* if (gamepad2.x) {
                 // Claw open
                 clawEat.setPosition(deliveryConstants.CLAW_EAT_OPEN);
             } else if (gamepad2.b) {
                 // Claw close
                 clawEat.setPosition(deliveryConstants.CLAW_EAT_CLOSE);
-            }
+            }*/
 
             double[] speeds = {
                     (drive+strafe+turn),//frontLeft -> 0
